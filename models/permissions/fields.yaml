@@ -1,0 +1,11 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+  name:
+    label: Name
+    span: left fullwidth
+    size: big
+    type: text

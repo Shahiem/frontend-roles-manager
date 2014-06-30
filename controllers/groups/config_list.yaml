@@ -1,0 +1,16 @@
+# ===================================
+#  List Behavior Config
+# ===================================
+
+title: Roles
+list: @/plugins/shahiemseymor/roles/models/groups/columns.yaml
+modelClass: ShahiemSeymor\Roles\Models\UserGroup
+recordUrl: shahiemseymor/roles/groups/update/:id
+noRecordsMessage: backend::lang.list.no_records
+recordsPerPage: 20
+showCheckboxes: yes
+
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: backend::lang.list.search_prompt

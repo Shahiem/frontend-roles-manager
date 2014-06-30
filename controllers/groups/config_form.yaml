@@ -1,0 +1,16 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: Role
+form: @/plugins/shahiemseymor/roles/models/groups/fields.yaml
+modelClass: ShahiemSeymor\Roles\Models\UserGroup
+defaultRedirect: shahiemseymor/roles/groups
+
+create:
+    redirect: shahiemseymor/roles/groups/update/:id
+    redirectClose: shahiemseymor/roles/groups
+
+update:
+    redirect: shahiemseymor/roles/groups
+    redirectClose: shahiemseymor/roles/groups

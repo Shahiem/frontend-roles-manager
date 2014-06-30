@@ -1,0 +1,16 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+fields:
+
+  name:
+    label: Name
+    span: left fullwidth
+    size: big
+    type: text
+
+  perms:
+      label: Permissions
+      type: relation
+      placeholder: There are no permissions, you should create one first!

@@ -1,0 +1,16 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+name: Permission
+form: @/plugins/shahiemseymor/roles/models/permissions/fields.yaml
+modelClass: ShahiemSeymor\Roles\Models\UserPermission
+defaultRedirect: shahiemseymor/roles/permissions
+
+create:
+    redirect: shahiemseymor/roles/permissions/update/:id
+    redirectClose: shahiemseymor/roles/permissions
+
+update:
+    redirect: shahiemseymor/roles/permissions
+    redirectClose: shahiemseymor/roles/permissions
