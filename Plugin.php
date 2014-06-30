@@ -40,7 +40,7 @@ class Plugin extends PluginBase
             if (!$widget->getController() instanceof \RainLab\User\Controllers\Users) return;
             $widget->addFields([
                 'groups' => [
-                    'label'   => 'Groups',
+                    'label'   => 'Roles',
                     'tab'     => 'Permissions',
                     'type' => 'relation',
                 ],
@@ -62,8 +62,8 @@ class Plugin extends PluginBase
     {
         return [
             'settings' => [
-                'label'       => 'Groups & Permissions',
-                'description' => 'Manage user groups and permissions.',
+                'label'       => 'Roles & Permissions',
+                'description' => 'Manage user roles and permissions.',
                 'category'    => 'Users',
                 'url'         => Backend::url('shahiemseymor/roles/groups'),
                 'icon' => 'icon-key'
