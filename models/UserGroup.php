@@ -4,6 +4,8 @@
  * Date: 6/26/14
  */
 namespace ShahiemSeymor\Roles\Models;
+
+use Auth;
 use RainLab\User\Models\User;
 use RainLab\User\Components\Account;
 use Model;
@@ -20,34 +22,43 @@ class UserGroup extends Model
     public static function hasRole($can)
     {
     	$account = new Account;
-    	$roles = json_decode(User::find($account->user()->id)->groups);
 
-	    foreach($roles as $role)
-	    {
-	    	if($role->name == $can)
-	    	{
-	    		return true;
-	    	}
-	    }
+        if(Auth::check())
+        {
+    	   $roles = json_decode(User::find($account->user()->id)->groups);
 
+    	    foreach($roles as $role)
+    	    {
+    	    	if($role->name == $can)
+    	    	{
+    	    		return true;
+    	    	}
+    	    }
+
+        }
+        
 	    return false;
     }
 
     public static function can($can)
     {
     	$account = new Account;
-    	$roles = json_decode(User::find($account->user()->id)->groups);
-     	foreach($roles as $role)
-	    {
-	    	foreach(UserGroup::find($role->id)->perms as $perm)
-	    	{
- 				if($perm->name == $can) {
-                    return true;
-                }
-	    	}
-	    	
-	    }
+        
+        if(Auth::check())
+        {
 
+        	$roles = json_decode(User::find($account->user()->id)->groups);
+         	foreach($roles as $role)
+    	    {
+    	    	foreach(UserGroup::find($role->id)->perms as $perm)
+    	    	{
+     				if($perm->name == $can) {
+                        return true;
+                    }
+    	    	}
+    	    	
+    	    }
+        }
     }
     
 }

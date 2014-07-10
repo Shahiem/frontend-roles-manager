@@ -38,6 +38,8 @@ class Plugin extends PluginBase
         Event::listen('backend.form.extendFields', function($widget) 
         {
             if (!$widget->getController() instanceof \RainLab\User\Controllers\Users) return;
+            if (!$widget->model instanceof \RainLab\User\Models\User) return;
+            
             $widget->addFields([
                 'groups' => [
                     'label'   => 'Roles',

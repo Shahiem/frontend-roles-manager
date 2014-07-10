@@ -9,10 +9,9 @@
 
 <?php if (!$this->fatalError): ?>
 
-    <?php Block::put('form-contents') ?>
+    <?= Form::open(['class'=>'layout-item stretch layout-column']) ?>
 
-        <?= $this->formRenderOutsideFields() ?>
-        <?= $this->formRenderPrimaryTabs() ?>
+         <?= $this->formRender() ?>
 
         <div class="form-buttons layout-item fix">
             <div class="loading-indicator-container">
@@ -48,16 +47,7 @@
             </div>
         </div>
 
-    <?php Block::endPut() ?>
-
-    <?php Block::put('form-sidebar') ?>
-    <?php Block::endPut() ?>
-
-    <?php Block::put('body') ?>
-        <?= Form::open(['class'=>'layout stretch']) ?>
-            <?= $this->makeLayout('form-with-sidebar') ?>
-        <?= Form::close() ?>
-    <?php Block::endPut() ?>
+    <?= Form::close() ?>
 
 <?php else: ?>
     <div class="padded-container">

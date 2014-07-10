@@ -8,7 +8,12 @@ columns:
     label: Name
     searchable: true
 
-    
+  permissions:
+    label: Permissions
+    relation: perms
+    select: @name
+    searchable: true
+
   created_at:
     label: Created
     type: date
