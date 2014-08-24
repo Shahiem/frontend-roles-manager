@@ -12,8 +12,14 @@ use Model;
 
 class UserGroup extends Model
 {
+    use \October\Rain\Database\Traits\Validation;
+    
     protected $table = 'shahiemseymor_roles';
 
+    public $rules = [
+        'name'                  => 'required|unique:shahiemseymor_roles',
+    ];
+    
     public $belongsToMany = [
         'users' => ['Rainlab\User\Models\User', 'table' => 'shahiemseymor_user_groups'],
         'perms' => ['ShahiemSeymor\Roles\Models\UserPermission', 'table' => 'shahiemseymor_permission_role', 'primaryKey' => 'role_id', 'foreignKey' => 'permission_id']
@@ -40,10 +46,12 @@ class UserGroup extends Model
 	    return false;
     }
 
-    public static function can($can)
+    public static function can($permissions)
     {
     	$account = new Account;
         
+        $permissions = !is_array($permissions) ? [$permissions] : $permissions;
+
         if(Auth::check())
         {
 
@@ -52,7 +60,8 @@ class UserGroup extends Model
     	    {
     	    	foreach(UserGroup::find($role->id)->perms as $perm)
     	    	{
-     				if($perm->name == $can) {
+     				if (in_array($perm->name, $permissions))
+                    {
                         return true;
                     }
     	    	}

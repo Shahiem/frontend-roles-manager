@@ -1,10 +1,6 @@
 1.0.1:
     - First version
     - create_table.php
-1.0.2:
-    - Renamed New Role to New Group
-1.0.3:
-    - Bug fixes (Auth check)
-    - Added Delete buttons
-    - Permissions on Role List view
-    - Removed sidebar
+1.0.2: Renamed New Role to New Group
+1.0.3: Bug fixes (Auth check) Added Delete buttons Permissions on Role List view Removed sidebar
+1.0.4: Bug fixed, user permission method can handle arrays (see documentation)

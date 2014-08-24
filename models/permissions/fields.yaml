@@ -8,4 +8,5 @@ fields:
     label: Name
     span: left fullwidth
     size: big
+    required: true
     type: text

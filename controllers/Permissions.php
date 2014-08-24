@@ -18,7 +18,7 @@ class Permissions extends Controller
     public function __construct()
     {
         parent::__construct();
-        BackendMenu::setContext('October.System', 'system', 'settings');
+        BackendMenu::setContext('RainLab.User', 'user', 'perms');
     }
 
     public function index_onDelete()
