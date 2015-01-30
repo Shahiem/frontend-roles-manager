@@ -1,29 +1,21 @@
 # ===================================
 #  Column Definitions
 # ===================================
-
 columns:
+    name:
+      label: Name
+      searchable: true
 
-  name:
-    label: Name
-    searchable: true
+    permissions:
+      label: Permissions
+      relation: perms
+      select: @name
+      searchable: true
 
-  permissions:
-    label: Permissions
-    relation: perms
-    select: @name
-    searchable: true
+    created_at:
+      label: Created
+      type: date
 
-   # members:
-    #label: Members
-  #relation: perms
-   #select: @name
-   # searchable: true 
-
-  created_at:
-    label: Created
-    type: date
-
-  updated_at:
-    label: Updated
-    type: date
+    updated_at:
+      label: Updated
+      type: date

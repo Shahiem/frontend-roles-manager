@@ -2,11 +2,12 @@
 
 use BackendMenu;
 use Backend\Classes\Controller;
-use ShahiemSeymor\Roles\Models\UserGroup;
 use Flash;
+use ShahiemSeymor\Roles\Models\UserGroup;
 
 class Groups extends Controller
 {
+
     public $implement = [
         'Backend.Behaviors.FormController',
         'Backend.Behaviors.ListController'
@@ -23,18 +24,20 @@ class Groups extends Controller
 
     public function index_onDelete()
     {
-        if (($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) 
+        if(($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) 
         {
-            foreach ($checkedIds as $roleId) {
+            foreach ($checkedIds as $roleId) 
+            {
                 if (!$role = UserGroup::find($roleId))
                     continue;
 
                 $role->delete();
             }
 
-            Flash::success('The Role has been deleted successfully.');
+            Flash::success('The role has been deleted successfully.');
         }
 
-         return $this->listRefresh();
+        return $this->listRefresh();
     }
+    
 }

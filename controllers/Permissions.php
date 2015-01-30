@@ -2,11 +2,12 @@
 
 use BackendMenu;
 use Backend\Classes\Controller;
-use ShahiemSeymor\Roles\Models\UserPermission;
 use Flash;
+use ShahiemSeymor\Roles\Models\UserPermission;
 
 class Permissions extends Controller
 {
+
     public $implement = [
         'Backend.Behaviors.FormController',
         'Backend.Behaviors.ListController'
@@ -23,7 +24,7 @@ class Permissions extends Controller
 
     public function index_onDelete()
     {
-        if (($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) 
+        if(($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) 
         {
             foreach ($checkedIds as $permissionId) {
                 if (!$permission = UserPermission::find($permissionId))
@@ -32,9 +33,10 @@ class Permissions extends Controller
                 $permission->delete();
             }
 
-            Flash::success('The Permission has been deleted successfully.');
+            Flash::success('The permission has been deleted successfully.');
         }
 
-         return $this->listRefresh();
+        return $this->listRefresh();
     }
+
 }

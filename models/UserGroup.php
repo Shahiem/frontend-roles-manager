@@ -1,27 +1,24 @@
 <?php 
-/**
- * Created by ShahiemSeymor.
- * Date: 6/26/14
- */
 namespace ShahiemSeymor\Roles\Models;
 
 use Auth;
+use Model;
 use RainLab\User\Models\User;
 use RainLab\User\Components\Account;
-use Model;
 
 class UserGroup extends Model
 {
+    
     use \October\Rain\Database\Traits\Validation;
     
-    protected $table = 'shahiemseymor_roles';
+    protected $table      = 'shahiemseymor_roles';
 
-    public $rules = [
-        'name'                  => 'required|unique:shahiemseymor_roles',
+    public $rules         = [
+        'name'  => 'required|unique:shahiemseymor_roles',
     ];
     
     public $belongsToMany = [
-        'users' => ['Rainlab\User\Models\User', 'table' => 'shahiemseymor_user_groups'],
+        'users' => ['Rainlab\User\Models\User',                  'table' => 'shahiemseymor_user_groups'],
         'perms' => ['ShahiemSeymor\Roles\Models\UserPermission', 'table' => 'shahiemseymor_permission_role', 'primaryKey' => 'role_id', 'foreignKey' => 'permission_id']
     ];
 
@@ -49,12 +46,10 @@ class UserGroup extends Model
     public static function can($permissions)
     {
     	$account = new Account;
-        
         $permissions = !is_array($permissions) ? [$permissions] : $permissions;
 
         if(Auth::check())
         {
-
         	$roles = json_decode(User::find($account->user()->id)->groups);
          	foreach($roles as $role)
     	    {
@@ -65,7 +60,6 @@ class UserGroup extends Model
                         return true;
                     }
     	    	}
-    	    	
     	    }
         }
     }

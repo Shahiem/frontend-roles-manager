@@ -1,21 +1,16 @@
 <?php
-/**
- * Created by ShahiemSeymor.
- * Date: 6/26/14
- */
-
 namespace ShahiemSeymor\Roles;
 
 use App;
+use Event;
 use Backend;
+use BackendMenu;
+use Illuminate\Foundation\AliasLoader;
 use RainLab\User\Models\User;
 use RainLab\User\Components\Account;
 use ShahiemSeymor\Roles\Models\Custom;
 use ShahiemSeymor\Roles\Models\UserGroup;
 use System\Classes\PluginBase;
-use Illuminate\Foundation\AliasLoader;
-use BackendMenu;
-use Event;
 
 class Plugin extends PluginBase
 {
@@ -57,7 +52,6 @@ class Plugin extends PluginBase
                     'url'         => Backend::url('shahiemseymor/roles/permissions')
                 ]
             ]);
-
         });
 
         Event::listen('backend.form.extendFields', function($widget) 
@@ -72,7 +66,6 @@ class Plugin extends PluginBase
                     'type'     => 'relation'
                 ]
             ], 'primary');
-
         });
     }
 

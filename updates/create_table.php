@@ -8,14 +8,13 @@ class CreateTable extends Migration
 
     public function up()
     {
-       Schema::create('shahiemseymor_roles', function($table)
+        Schema::create('shahiemseymor_roles', function($table)
         {
             $table->increments('id')->unsigned();
             $table->string('name')->unique();
             $table->timestamps();
         });
 
-        // Creates the assigned_roles (Many-to-Many relation) table
         Schema::create('shahiemseymor_assigned_roles', function($table)
         {
             $table->increments('id')->unsigned();
@@ -23,7 +22,6 @@ class CreateTable extends Migration
             $table->integer('role_id')->unsigned();
         });
 
-        // Creates the permissions table
         Schema::create('shahiemseymor_permissions', function($table)
         {
             $table->increments('id')->unsigned();
@@ -32,7 +30,6 @@ class CreateTable extends Migration
             $table->timestamps();
         });
 
-        // Creates the permission_role (Many-to-Many relation) table
         Schema::create('shahiemseymor_permission_role', function($table)
         {
             $table->increments('id')->unsigned();

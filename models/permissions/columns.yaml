@@ -1,18 +1,15 @@
 # ===================================
 #  Column Definitions
 # ===================================
-
 columns:
+  	name:
+    	label: Name
+    	searchable: true
 
-  name:
-    label: Name
-    searchable: true
+  	created_at:
+    	label: Created
+    	type: date
 
-    
-  created_at:
-    label: Created
-    type: date
-
-  updated_at:
-    label: Updated
-    type: date
+  	updated_at:
+    	label: Updated
+    	type: date
