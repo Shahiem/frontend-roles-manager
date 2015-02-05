@@ -1,5 +1,5 @@
 ###Manage Groups & Permissions######
-Go to System -> Settings and look for the section named Groups & Permissions.
+Go to the Users page in the backend and look for the section named Groups or Permissions.
 
 ###Check if a user has a role######
 
