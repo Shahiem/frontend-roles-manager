@@ -6,16 +6,12 @@ columns:
       label: Name
       searchable: true
 
+    description:
+      label: Description
+      searchable: true
+
     permissions:
       label: Permissions
       relation: perms
       select: @name
       searchable: true
-
-    created_at:
-      label: Created
-      type: date
-
-    updated_at:
-      label: Updated
-      type: date

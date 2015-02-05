@@ -10,6 +10,7 @@ use RainLab\User\Models\User;
 use RainLab\User\Components\Account;
 use ShahiemSeymor\Roles\Models\Custom;
 use ShahiemSeymor\Roles\Models\UserGroup;
+use ShahiemSeymor\Roles\Models\UserAssignedGroup;
 use System\Classes\PluginBase;
 
 class Plugin extends PluginBase

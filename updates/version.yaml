@@ -4,3 +4,7 @@
 1.0.2: Renamed New Role to New Group
 1.0.3: Bug fixes (Auth check) Added Delete buttons Permissions on Role List view Removed sidebar
 1.0.4: Bug fixed, user permission method can handle arrays (see documentation)
+1.0.5:
+    - Added default group checkbox (roles) and description field
+    - add_default_and_description.php
+    - add_dates.php

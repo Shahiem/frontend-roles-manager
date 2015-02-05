@@ -18,7 +18,7 @@ class UserGroup extends Model
     ];
     
     public $belongsToMany = [
-        'users' => ['Rainlab\User\Models\User',                  'table' => 'shahiemseymor_user_groups'],
+        'users' => ['Rainlab\User\Models\User',                  'table' => 'shahiemseymor_assigned_roles',  'primaryKey' => 'role_id'],
         'perms' => ['ShahiemSeymor\Roles\Models\UserPermission', 'table' => 'shahiemseymor_permission_role', 'primaryKey' => 'role_id', 'foreignKey' => 'permission_id']
     ];
 
@@ -63,5 +63,19 @@ class UserGroup extends Model
     	    }
         }
     }
-    
+
+    public function afterCreate()
+    {
+        if($this->default_group)
+        {
+            $this->addAllUsersToGroup();
+        }
+        
+    }
+
+    public function addAllUsersToGroup()
+    {
+        $this->users()->sync(User::lists('id'));
+    }
+
 }
