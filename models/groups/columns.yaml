@@ -15,3 +15,8 @@ columns:
       relation: perms
       select: @name
       searchable: true
+
+    users:
+      label: Users
+      searchable: false
+      select: (SELECT COUNT(1) FROM shahiemseymor_assigned_roles WHERE role_id = shahiemseymor_roles.id)

@@ -2,8 +2,8 @@
 #  Field Definitions
 # ===================================
 fields:
-  	name:
-    	label: Name
-    	span: left
-    	required: true
-    	type: text
+    name:
+      label: Name
+      span: left
+      required: true
+      type: text

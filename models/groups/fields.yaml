@@ -2,25 +2,25 @@
 #  Field Definitions
 # ===================================
 fields:
-  name:
-    label: Name
-    required: true
-    size: big
-    span: left
-    type: text
+    name:
+      label: Name
+      required: true
+      size: big
+      span: left
+      type: text
 
-  perms:
+    perms:
       label: Permissions
       type: relation
       span: right
       emptyOption: There are no permissions, you should create one first!
 
-  description:
-    label: Description
-    size: big
-    span: left
-    type: textarea
+    description:
+      label: Description
+      size: big
+      span: left
+      type: textarea
 
-  default_group:
-    label: Add new users to this group by default
-    type: checkbox
+    default_group:
+      label: Add new users to this group by default
+      type: checkbox
