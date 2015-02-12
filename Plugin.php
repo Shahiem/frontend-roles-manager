@@ -35,6 +35,9 @@ class Plugin extends PluginBase
             $model->belongsToMany['permissions'] = ['ShahiemSeymor\Roles\Models\UserGroup', 'table' => 'shahiemseymor_assigned_roles', 'foreignKey' => 'role_id'];     
         });  
 
+        $userGroup = new UserGroup;
+        $userGroup->newUserAddToDefaultGroup();
+
         Event::listen('backend.menu.extendItems', function($manager)
         {
            $manager->addSideMenuItems('RainLab.User', 'user', [
@@ -63,7 +66,7 @@ class Plugin extends PluginBase
              $widget->addFields([
                 'groups'       => [
                     'label'    => 'Roles',
-                    'tab'      => 'Permissions',
+                    'tab'      => 'Groups',
                     'type'     => 'relation'
                 ]
             ], 'primary');

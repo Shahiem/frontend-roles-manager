@@ -64,13 +64,20 @@ class UserGroup extends Model
         }
     }
 
-    public function afterCreate()
+    public function newUserAddToDefaultGroup()
+    {
+        User::created(function($user) {
+            $defaultGroups = static::where('default_group', '=', 1)->get();
+            $user->groups()->sync($defaultGroups);
+        });
+    }
+
+    public function afterSave()
     {
         if($this->default_group)
         {
             $this->addAllUsersToGroup();
         }
-        
     }
 
     public function addAllUsersToGroup()
