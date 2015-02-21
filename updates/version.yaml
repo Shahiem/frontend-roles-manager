@@ -9,3 +9,4 @@
     - add_default_and_description.php
     - add_dates.php
 1.0.6: Fixed permission bug & Assign users in default groups
+1.0.7: Update for RC
