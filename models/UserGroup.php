@@ -18,8 +18,8 @@ class UserGroup extends Model
     ];
     
     public $belongsToMany = [
-        'users' => ['Rainlab\User\Models\User',                  'table' => 'shahiemseymor_assigned_roles',  'primaryKey' => 'role_id'],
-        'perms' => ['ShahiemSeymor\Roles\Models\UserPermission', 'table' => 'shahiemseymor_permission_role', 'primaryKey' => 'role_id', 'foreignKey' => 'permission_id']
+        'users' => ['Rainlab\User\Models\User',                  'table' => 'shahiemseymor_assigned_roles',  'key' => 'role_id'],
+        'perms' => ['ShahiemSeymor\Roles\Models\UserPermission', 'table' => 'shahiemseymor_permission_role', 'key' => 'role_id', 'otherKey' => 'permission_id']
     ];
 
     public static function hasRole($can)
