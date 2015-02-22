@@ -31,8 +31,8 @@ class Plugin extends PluginBase
     {
         User::extend(function($model) 
         {
-            $model->belongsToMany['groups']      = ['ShahiemSeymor\Roles\Models\UserGroup', 'table' => 'shahiemseymor_assigned_roles', 'foreignKey' => 'role_id'];
-            $model->belongsToMany['permissions'] = ['ShahiemSeymor\Roles\Models\UserGroup', 'table' => 'shahiemseymor_assigned_roles', 'foreignKey' => 'role_id'];     
+            $model->belongsToMany['groups']      = ['ShahiemSeymor\Roles\Models\UserGroup', 'table' => 'shahiemseymor_assigned_roles', 'otherKey' => 'role_id'];
+            $model->belongsToMany['permissions'] = ['ShahiemSeymor\Roles\Models\UserGroup', 'table' => 'shahiemseymor_assigned_roles', 'otherKey' => 'role_id'];     
         });  
 
         $userGroup = new UserGroup;
@@ -64,10 +64,11 @@ class Plugin extends PluginBase
             if (!$widget->model instanceof \RainLab\User\Models\User) return;
             
              $widget->addFields([
-                'groups'       => [
-                    'label'    => 'Roles',
-                    'tab'      => 'Groups',
-                    'type'     => 'relation'
+                'groups'              => [
+                    'label'           => 'Groups',
+                    'commentAbove'    => 'Specify which groups this person belongs to.',
+                    'tab'             => 'Permissions',
+                    'type'            => 'relation'
                 ]
             ], 'primary');
         });

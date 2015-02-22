@@ -3,7 +3,7 @@
 # ===================================
 
 title: Permissions
-list: @/plugins/shahiemseymor/roles/models/permissions/columns.yaml
+list: ~/plugins/shahiemseymor/roles/models/permissions/columns.yaml
 modelClass: ShahiemSeymor\Roles\Models\UserPermission
 recordUrl: shahiemseymor/roles/permissions/update/:id
 noRecordsMessage: backend::lang.list.no_records
