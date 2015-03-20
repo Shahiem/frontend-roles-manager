@@ -4,7 +4,7 @@
 
 title: Permissions
 list: ~/plugins/shahiemseymor/roles/models/permissions/columns.yaml
-modelClass: ShahiemSeymor\Roles\Models\UserPermission
+modelClass: ShahiemSeymor\Roles\Models\Permission
 recordUrl: shahiemseymor/roles/permissions/update/:id
 noRecordsMessage: backend::lang.list.no_records
 recordsPerPage: 20

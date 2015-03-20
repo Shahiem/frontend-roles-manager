@@ -3,7 +3,7 @@
 use BackendMenu;
 use Backend\Classes\Controller;
 use Flash;
-use ShahiemSeymor\Roles\Models\UserGroup;
+use ShahiemSeymor\Roles\Models\Group;
 
 class Groups extends Controller
 {
@@ -28,7 +28,7 @@ class Groups extends Controller
         {
             foreach ($checkedIds as $roleId) 
             {
-                if (!$role = UserGroup::find($roleId))
+                if (!$role = Group::find($roleId))
                     continue;
 
                 $role->delete();

@@ -4,7 +4,7 @@
 
 name: Permission
 form: ~/plugins/shahiemseymor/roles/models/permissions/fields.yaml
-modelClass: ShahiemSeymor\Roles\Models\UserPermission
+modelClass: ShahiemSeymor\Roles\Models\Permission
 defaultRedirect: shahiemseymor/roles/permissions
 
 create:

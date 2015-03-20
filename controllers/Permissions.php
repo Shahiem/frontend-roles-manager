@@ -3,7 +3,7 @@
 use BackendMenu;
 use Backend\Classes\Controller;
 use Flash;
-use ShahiemSeymor\Roles\Models\UserPermission;
+use ShahiemSeymor\Roles\Models\Permission;
 
 class Permissions extends Controller
 {
@@ -27,7 +27,7 @@ class Permissions extends Controller
         if(($checkedIds = post('checked')) && is_array($checkedIds) && count($checkedIds)) 
         {
             foreach ($checkedIds as $permissionId) {
-                if (!$permission = UserPermission::find($permissionId))
+                if (!$permission = Permission::find($permissionId))
                     continue;
 
                 $permission->delete();

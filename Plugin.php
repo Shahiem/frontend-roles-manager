@@ -9,8 +9,7 @@ use Illuminate\Foundation\AliasLoader;
 use RainLab\User\Models\User;
 use RainLab\User\Components\Account;
 use ShahiemSeymor\Roles\Models\Custom;
-use ShahiemSeymor\Roles\Models\UserGroup;
-use ShahiemSeymor\Roles\Models\UserAssignedGroup;
+use ShahiemSeymor\Roles\Models\Group;
 use System\Classes\PluginBase;
 
 class Plugin extends PluginBase
@@ -31,11 +30,11 @@ class Plugin extends PluginBase
     {
         User::extend(function($model) 
         {
-            $model->belongsToMany['groups']      = ['ShahiemSeymor\Roles\Models\UserGroup', 'table' => 'shahiemseymor_assigned_roles', 'otherKey' => 'role_id'];
-            $model->belongsToMany['permissions'] = ['ShahiemSeymor\Roles\Models\UserGroup', 'table' => 'shahiemseymor_assigned_roles', 'otherKey' => 'role_id'];     
+            $model->belongsToMany['groups']      = ['ShahiemSeymor\Roles\Models\Group', 'table' => 'shahiemseymor_assigned_roles', 'otherKey' => 'role_id'];
+            $model->belongsToMany['permissions'] = ['ShahiemSeymor\Roles\Models\Group', 'table' => 'shahiemseymor_assigned_roles', 'otherKey' => 'role_id'];     
         });  
 
-        $userGroup = new UserGroup;
+        $userGroup = new Group;
         $userGroup->newUserAddToDefaultGroup();
 
         Event::listen('backend.menu.extendItems', function($manager)
@@ -78,8 +77,8 @@ class Plugin extends PluginBase
     {
         return [
             'functions'   => [
-                'can'     => function($can) { return UserGroup::can($can); },
-                'hasRole' => function($can) { return UserGroup::hasRole($can); }
+                'can'         => function($can) { return Group::can($can); },
+                'hasRole'     => function($role, $user = null) { return Group::hasRole($role, $user); }
             ]
         ];
     }
