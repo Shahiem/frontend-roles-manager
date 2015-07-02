@@ -67,7 +67,7 @@ class Plugin extends PluginBase
                 'groups'              => [
                     'label'           => 'Groups',
                     'commentAbove'    => 'Specify which groups this person belongs to.',
-                    'tab'             => 'Permissions',
+                    'tab'             => 'Roles',
                     'type'            => 'relation'
                 ]
             ], 'primary');

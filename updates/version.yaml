@@ -11,4 +11,5 @@
 1.0.6: Fixed permission bug & Assign users in default groups
 1.0.7: Update for RC
 1.0.8: Update for RC(2)
-1.0.9: Code cleanup &  hasRole by UserId (see documentation)
+1.0.9: Code cleanup & hasRole by UserId (see documentation)
+1.0.10: Uninstall bug fix
