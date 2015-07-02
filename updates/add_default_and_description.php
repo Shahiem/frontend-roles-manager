@@ -17,7 +17,7 @@ class CreateDefaultAndDescription extends Migration
 
     public function down()
     {
-        Schema::drop('shahiemseymor_roles');
+        Schema::dropIfExists('shahiemseymor_roles');
     }
 
 }

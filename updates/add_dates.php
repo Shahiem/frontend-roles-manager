@@ -16,7 +16,7 @@ class CreateDates extends Migration
 
     public function down()
     {
-        Schema::drop('shahiemseymor_assigned_roles');
+        Schema::dropIfExists('shahiemseymor_assigned_roles');
     }
 
 }

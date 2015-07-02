@@ -45,10 +45,8 @@ class CreateTable extends Migration
 
     public function down()
     {
-        Schema::drop('shahiemseymor_assigned_roles');
-        Schema::drop('shahiemseymor_permission_role');
-        Schema::drop('shahiemseymor_roles');
-        Schema::drop('shahiemseymor_permissions');
+        Schema::dropIfExists('shahiemseymor_permission_role');
+        Schema::dropIfExists('shahiemseymor_permissions');
 
         if(Schema::hasColumn('users', 'primary_usergroup'))
         {
