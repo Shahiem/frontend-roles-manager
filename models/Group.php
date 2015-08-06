@@ -25,8 +25,19 @@ class Group extends Model
     public static function hasRole($role, $user = null)
     {
 
-    	$account = new Account;
-        $userRoles = json_decode(User::find($user == null ? $account->user()->id : $user)->groups);
+        if ($user==null)
+        {
+            $account = new Account;
+            $user = $account->user() ? $account->user()->id : null;
+        }
+
+        $user = User::find($user);
+        if($user==null)
+        {
+            return false;
+        }
+
+        $userRoles = json_decode($user->groups);
         
         foreach($userRoles as $userRole)
         {
