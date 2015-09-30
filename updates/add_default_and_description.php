@@ -10,8 +10,8 @@ class CreateDefaultAndDescription extends Migration
     {
         Schema::table('shahiemseymor_roles', function($table)
         {
-            $table->text('description');
-            $table->integer('default_group');
+            $table->text('description')->nullable();
+            $table->integer('default_group')->nullable();
         });
     }
 

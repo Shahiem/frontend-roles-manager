@@ -10,7 +10,7 @@ class CreateDates extends Migration
     {
         Schema::table('shahiemseymor_assigned_roles', function($table)
         {
-            $table->timestamps();
+            $table->nullableTimestamps();
         });
     }
 
