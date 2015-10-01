@@ -39,7 +39,7 @@ class CreateTable extends Migration
 
         Schema::table('users', function($table)
         {
-            $table->integer('primary_usergroup');
+            $table->integer('primary_usergroup')->default(0);
         });
     }
 
