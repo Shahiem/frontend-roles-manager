@@ -31,8 +31,8 @@ class Plugin extends PluginBase
     {
         User::extend(function($model) 
         {
-            $model->belongsToMany['groups']      = ['ShahiemSeymor\Roles\Models\Group', 'table' => 'shahiemseymor_assigned_roles', 'otherKey' => 'role_id'];
-            $model->belongsToMany['permissions'] = ['ShahiemSeymor\Roles\Models\Group', 'table' => 'shahiemseymor_assigned_roles', 'otherKey' => 'role_id'];     
+            $model->belongsToMany['groups']      = ['ShahiemSeymor\Roles\Models\Group', 'table' => 'shahiemseymor_assigned_roles', 'otherKey' => 'role_id', 'key' => 'user_id'];
+            $model->belongsToMany['permissions'] = ['ShahiemSeymor\Roles\Models\Group', 'table' => 'shahiemseymor_assigned_roles', 'otherKey' => 'role_id', 'key' => 'user_id'];     
         });  
 
         $userGroup = new Group;
