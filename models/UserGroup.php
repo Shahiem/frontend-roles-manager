@@ -1,72 +1,69 @@
-<?php 
+<?php
 namespace ShahiemSeymor\Roles\Models;
 
 use Auth;
-use Model;
-use RainLab\User\Models\User;
 use RainLab\User\Components\Account;
+use RainLab\User\Models\User;
+use RainLab\User\Models\UserGroup as UG;
 
-class UserGroup extends Model
+class UserGroup extends UG
 {
-    
-    use \October\Rain\Database\Traits\Validation;
-    
-    protected $table      = 'shahiemseymor_roles';
 
-    public $rules         = [
-        'name'  => 'required|unique:shahiemseymor_roles',
-    ];
-    
+//    use \October\Rain\Database\Traits\Validation;
+
+//    protected $table      = 'shahiemseymor_roles';
+
+/*    public $rules = [
+'name' => 'required|unique:shahiemseymor_roles',
+];
+ */
     public $belongsToMany = [
-        'users' => ['Rainlab\User\Models\User',                  'table' => 'shahiemseymor_assigned_roles',  'key' => 'role_id'],
-        'perms' => ['ShahiemSeymor\Roles\Models\UserPermission', 'table' => 'shahiemseymor_permission_role', 'key' => 'role_id', 'otherKey' => 'permission_id']
+        'users' => ['Rainlab\User\Models\User', 'table' => 'shahiemseymor_assigned_roles', 'key' => 'role_id'],
+        'perms' => ['ShahiemSeymor\Roles\Models\UserPermission', 'table' => 'shahiemseymor_permission_role', 'key' => 'role_id', 'otherKey' => 'permission_id'],
     ];
 
-    public static function hasRole($can)
+    public static function hasRole($role)
     {
-    	$account = new Account;
+        $account = new Account;
 
-        if(Auth::check())
-        {
-    	   $roles = json_decode(User::find($account->user()->id)->groups);
+        if (Auth::check()) {
+            $roles = User::find($account->user()->id)->groups;
 
-    	    foreach($roles as $role)
-    	    {
-    	    	if($role->name == $can)
-    	    	{
-    	    		return true;
-    	    	}
-    	    }
+            if ($roles->contains('code', $role)) {
+                return true;
+            }
 
+/*            foreach ($roles as $role) {
+if ($role->name == $can) {
+return true;
+}
+}
+ */
         }
-        
-	    return false;
+
+        return false;
     }
 
     public static function can($permissions)
     {
-    	$account = new Account;
+        $account = new Account;
         $permissions = !is_array($permissions) ? [$permissions] : $permissions;
 
-        if(Auth::check())
-        {
-        	$roles = json_decode(User::find($account->user()->id)->groups);
-         	foreach($roles as $role)
-    	    {
-    	    	foreach(UserGroup::find($role->id)->perms as $perm)
-    	    	{
-     				if (in_array($perm->name, $permissions))
-                    {
+        if (Auth::check()) {
+            $roles = json_decode(User::find($account->user()->id)->groups);
+            foreach ($roles as $role) {
+                foreach (UserGroup::find($role->id)->perms as $perm) {
+                    if (in_array($perm->name, $permissions)) {
                         return true;
                     }
-    	    	}
-    	    }
+                }
+            }
         }
     }
 
     public function newUserAddToDefaultGroup()
     {
-        User::created(function($user) {
+        User::created(function ($user) {
             $defaultGroups = static::where('default_group', '=', 1)->get();
             $user->groups()->sync($defaultGroups);
         });
@@ -74,8 +71,7 @@ class UserGroup extends Model
 
     public function afterSave()
     {
-        if($this->default_group)
-        {
+        if ($this->default_group) {
             $this->addAllUsersToGroup();
         }
     }
