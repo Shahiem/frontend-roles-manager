@@ -2,7 +2,7 @@
 #  List Behavior Config
 # ===================================
 
-title: Permissions
+title: shahiemseymor.roles::lang.permission
 list: ~/plugins/shahiemseymor/roles/models/permissions/columns.yaml
 modelClass: ShahiemSeymor\Roles\Models\Permission
 recordUrl: shahiemseymor/roles/permissions/update/:id
