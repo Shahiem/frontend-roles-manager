@@ -2,7 +2,7 @@
 #  Form Behavior Config
 # ===================================
 
-name: Role
+name: shahiemseymor.roles::lang.role
 form: ~/plugins/shahiemseymor/roles/models/groups/fields.yaml
 modelClass: ShahiemSeymor\Roles\Models\Group
 defaultRedirect: shahiemseymor/roles/groups

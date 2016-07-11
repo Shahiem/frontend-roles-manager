@@ -2,8 +2,8 @@
 #  List Behavior Config
 # ===================================
 
-title: Roles
-list: @/plugins/shahiemseymor/roles/models/groups/columns.yaml
+title: shahiemseymor.roles::lang.roles
+list: ~/plugins/shahiemseymor/roles/models/groups/columns.yaml
 modelClass: ShahiemSeymor\Roles\Models\Group
 recordUrl: shahiemseymor/roles/groups/update/:id
 noRecordsMessage: backend::lang.list.no_records

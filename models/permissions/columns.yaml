@@ -3,13 +3,13 @@
 # ===================================
 columns:
     name:
-        label: Name
+        label: shahiemseymor.roles::lang.field.name
         searchable: true
 
     created_at:
-        label: Created
+        label: shahiemseymor.roles::lang.field.created
         type: date
 
     updated_at:
-        label: Updated
+        label: shahiemseymor.roles::lang.field.updated
         type: date

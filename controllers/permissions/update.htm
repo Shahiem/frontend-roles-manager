@@ -1,7 +1,7 @@
 
 <?php Block::put('breadcrumb') ?>
     <ul>
-        <li><a href="<?= Backend::url('shahiemseymor/roles/permissions') ?>">Permissions</a></li>
+        <li><a href="<?= Backend::url('shahiemseymor/roles/permissions') ?>"><?= e(trans('shahiemseymor.roles::lang.permissions')) ?></a></li>
         <li><?= e($this->pageTitle) ?></li>
     </ul>
 <?php Block::endPut() ?>
@@ -15,33 +15,33 @@
 
         <div class="form-buttons layout-item fix">
             <div class="loading-indicator-container">
-                <button 
+                <button
                     type="submit"
                     data-request="onSave"
                     data-request-data="redirect:0"
                     data-hotkey="ctrl+s"
                     data-hotkey-mac="cmd+s"
-                    data-load-indicator="Saving Permission..."
+                    data-load-indicator="<?= e(trans('shahiemseymor.roles::lang.updating_permission')) ?>"
                     class="btn btn-primary">
-                    <u>S</u>ave
+                    <?= e(trans('backend::lang.form.save')) ?>
                 </button>
-                <button 
+                <button
                     type="button"
                     data-request="onSave"
                     data-request-data="close:1"
                     data-hotkey="ctrl+enter"
                     data-hotkey-mac="cmd+enter"
-                    data-load-indicator="Saving Permission..."
+                    data-load-indicator="<?= e(trans('shahiemseymor.roles::lang.updating_permission')) ?>"
                     class="btn btn-default">
-                    Save and Close
+                    <?= e(trans('backend::lang.form.save_and_close')) ?>
                 </button>
                 <span class="btn-text">
-                    or <a href="<?= Backend::url('shahiemseymor/roles/permissions') ?>">Cancel</a>
+                    or <a href="<?= Backend::url('shahiemseymor/roles/permissions') ?>"><?= e(trans('backend::lang.form.cancel')) ?></a>
                 </span>
                 <button
                     class="oc-icon-trash-o btn-icon danger pull-right"
                     data-request="onDelete"
-                    data-load-indicator="Deleting Permission..."
+                    data-load-indicator="<?= e(trans('shahiemseymor.roles::lang.removing_permission')) ?>"
                     data-request-confirm="Do you really want to delete this permission?">
                 </button>
             </div>
@@ -55,6 +55,6 @@
             <?= Block::placeholder('breadcrumb') ?>
         </div>
         <p class="flash-message static error"><?= e($this->fatalError) ?></p>
-        <p><a href="<?= Backend::url('shahiemseymor/roles/groups') ?>" class="btn btn-default">Return to Roles list</a></p>
+        <p><a href="<?= Backend::url('shahiemseymor/roles/groups') ?>" class="btn btn-default"><?= e(trans('shahiemseymor.roles::lang.return_permissions_list')) ?></a></p>
     </div>
 <?php endif ?>
