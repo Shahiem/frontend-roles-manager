@@ -1,0 +1,31 @@
+<?php
+return [
+    'roles'                   => 'Grupos',
+    'role'                    => 'Grupo',
+    'permission'              => 'Permissão',
+    'permissions'             => 'Permissões',
+    'new_role'                => 'Novo Grupo',
+    'no_permissions'          => 'Você precisa criar uma permissão primeiro!',
+    'return_groups_list'      => 'Voltar a lista de grupos',
+    'return_permissions_list' => 'Voltar a lista de permissões',
+    'new_permission'          => 'Nova Permissão',
+    'creating_role'           => 'Criando Grupo...',
+    'updating_role'           => 'Atualizando Grupo...',
+    'removing_role'           => 'Removendo Grupo...',
+    'creating_permission'     => 'Criando Permissão...',
+    'updating_permission'     => 'Atualizando Permissão...',
+    'removing_permission'     => 'Removendo Permissão...',
+    'field'                   => [
+        'name'                     => 'Nome',
+        'description'              => 'Descrição',
+        'permissions'              => 'Permissões',
+        'users'                    => 'Usuários',
+        'groups'                   => 'Grupos',
+        'created'                  => 'Criado',
+        'updated'                  => 'Atualizado',
+        'add_new_users_by_default' => 'Adicionar novos usuários a esse grupo por padrão?',
+        'helper'                   => [
+            'groups' => 'Selecione os grupos desse usuário',
+        ],
+    ],
+];
