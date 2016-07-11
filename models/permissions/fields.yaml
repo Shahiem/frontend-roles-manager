@@ -3,7 +3,7 @@
 # ===================================
 fields:
     name:
-      label: Name
+      label: shahiemseymor.roles::lang.field.name
       span: left
       required: true
       type: text

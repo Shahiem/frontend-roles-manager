@@ -3,20 +3,19 @@
 # ===================================
 columns:
     name:
-      label: Name
-      searchable: true
-
+        label: shahiemseymor.roles::lang.field.name
+        searchable: true
     description:
-      label: Description
-      searchable: true
+        label: shahiemseymor.roles::lang.field.description
+        searchable: true
 
     permissions:
-      label: Permissions
-      relation: perms
-      select: @name
-      searchable: true
+        label: shahiemseymor.roles::lang.field.permissions
+        relation: perms
+        select: name
+        searchable: true
 
     users:
-      label: Users
-      searchable: false
-      select: (SELECT COUNT(1) FROM shahiemseymor_assigned_roles WHERE role_id = shahiemseymor_roles.id)
+        label: shahiemseymor.roles::lang.field.users
+        searchable: false
+        select: (SELECT COUNT(1) FROM shahiemseymor_assigned_roles WHERE role_id = shahiemseymor_roles.id)

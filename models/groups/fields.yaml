@@ -3,24 +3,24 @@
 # ===================================
 fields:
     name:
-      label: Name
+      label: shahiemseymor.roles::lang.field.name
       required: true
       size: big
       span: left
       type: text
 
     perms:
-      label: Permissions
+      label: shahiemseymor.roles::lang.field.permissions
       type: relation
       span: right
-      emptyOption: There are no permissions, you should create one first!
+      emptyOption: shahiemseymor.roles::lang.no_permissions
 
     description:
-      label: Description
+      label: shahiemseymor.roles::lang.field.description
       size: big
       span: left
       type: textarea
 
     default_group:
-      label: Add new users to this group by default
+      label: shahiemseymor.roles::lang.field.add_new_users_by_default
       type: checkbox
